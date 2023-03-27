@@ -53,31 +53,31 @@ int main(int argc, char *argv[]){
 
     while((tn = yylex()) != TEOF){
         switch(tn){
-        case TKEYWORD:
-            printf("%-15s:%19s\n", yytext, tokenType[0]);
-            break;
+            case TKEYWORD:
+                printf("%-15s:%19s\n", yytext, tokenType[0]);
+                break;
 
-        case TPUNCTUATION :
-            printf("%-15s:%19s\n", yytext, tokenType[7]);
-            break;
+            case TPUNCTUATION :
+                printf("%-15s:%19s\n", yytext, tokenType[7]);
+                break;
 
-        case TOPERATOR :
-            printf("%-15s:%19s\n", yytext, tokenType[6]);
-            break;
+            case TOPERATOR :
+                printf("%-15s:%19s\n", yytext, tokenType[6]);
+                break;
 
-        case TIDENTIFIER:
-            printf("%-15s:%19s\n", yytext, tokenType[1]);
-            break;
+            case TIDENTIFIER:
+                printf("%-15s:%19s\n", yytext, tokenType[1]);
+                break;
 
-        case TINTEGER:
-            
-            checkInteger();
+            case TINTEGER:
+                
+                checkInteger();
 
-            printf("%-15s:%19s,%5d\n", yytext, tokenType[2], yylval.iVal);
-            break;
+                printf("%-15s:%19s,%5d\n", yytext, tokenType[2], yylval.iVal);
+                break;
 
-        default :
-            printf("%s\n", yytext);
+            default :
+                printf("%s\n", yytext);
         }
     }
     return 0;

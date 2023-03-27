@@ -27,14 +27,12 @@ DECIMAL [1-9]{DIGIT}*
 OCTAL 0|[0-7]+
 HEXA 0[xX]([A-Fa-f]|{DIGIT})+
 INTEGER {HEXA}|{DECIMAL}|{OCTAL}|0
-REAL ({DIGIT}*\.{DIGIT}+F?)
-
+REAL ({DIGIT}*\.{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[fF])|(\.{DIGIT}+[fF])|({DIGIT}+\.[eE][+-]?{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])|(\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])
 CHAR_E '\\[abfnrtv0\\\']'
 CHAR_S '[\"\?\+\*\_\-\&\^\%\!\#\(\)\[\]\{\}\;\:\,\.\<\>\/\\]'
 CHAR '([a-zA-Z0-9])'|{CHAR_E}|{CHAR_S}
 LETTER_ [A-Za-z_]
 IDENTIFIER {LETTER_}({LETTER_}|{DIGIT})*
- //(\d+\.\d*F?)|(\.\d+F?)|(\d+\.[eE][+-]?\d+F?)|(\d+\.\d*[eE][+-]?\d*F?)|(\.\d*[eE][+-]?\d*F?)
  // STRING
  // COMMENT
 
@@ -93,6 +91,7 @@ int main(int argc, char *argv[]){
             case TREAL :
                 checkReal();
                 printf("%-15s:%19s,%5.2f\n", yytext, tokenType[3], yylval.rVal );
+                break;
 
 			default:
 				printf("Error occured\n");

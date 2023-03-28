@@ -53,6 +53,7 @@ OPERATOR {AOPERATOR}|{BOPERATOR}
 
 void checkInteger();
 void checkString();
+char checkEscape(const char ch);
 
 int main(int argc, char *argv[]){
 	enum tnumber tn;
@@ -114,6 +115,59 @@ int main(int argc, char *argv[]){
 	return 0;
 }
 
+char checkEscape(const char ch){
+    char a ;
+    switch(ch){
+        case '\'':
+            a = '\'';
+            break;
+
+        case '\"':
+            a = '\"';
+            break;
+        
+        case '\?':
+            a = '\?';
+            break;
+
+        case '\\':
+            a = '\\';
+            break;
+
+        case 'a':
+            a = '\a';
+            break;
+
+        case 'b':
+            a = '\b';
+            break;
+        
+        case 'f':
+            a = '\f';
+            break;
+
+        case 'n':
+            a = '\n';
+            break;
+
+        case 'r':
+            a = '\r';
+            break;
+
+        case 't':
+            a = '\t';
+            break;
+
+        case 'v':
+            a = '\v';
+            break;
+
+        case '0':
+            a = '\0';
+            break;
+    }
+    return a;
+}
 
 void checkInteger(){
 
@@ -125,59 +179,7 @@ void checkInteger(){
         yylval.iVal = yytext[1];
 
         if(yyleng == 4){
-            char a;
-            switch(yytext[2]){
-
-                case '\'':
-                    a = '\'';
-                    break;
-
-                case '\"':
-                    a = '\"';
-                    break;
-                
-                case '\?':
-                    a = '\?';
-                    break;
-
-                case '\\':
-                    a = '\\';
-                    break;
-
-                case 'a':
-                    a = '\a';
-                    break;
-
-                case 'b':
-                    a = '\b';
-                    break;
-                
-                case 'f':
-                    a = '\f';
-                    break;
-
-                case 'n':
-                    a = '\n';
-                    break;
-
-                case 'r':
-                    a = '\r';
-                    break;
-
-                case 't':
-                    a = '\t';
-                    break;
-
-                case 'v':
-                    a = '\v';
-                    break;
-
-                case '0':
-                    a = '\0';
-                    break;
-                
-            }
-            yylval.iVal = a;
+            yylval.iVal = checkEscape(yytext[2]);
         }
     }
 
@@ -196,58 +198,7 @@ void checkString(){
     strncpy(yystring, &yytext[1], yyleng-2);
     char* ptr = strtok(yystring, "\\");
     while(ptr != NULL){
-        switch(ptr[0]){
-// 질문. \', \", \?, \\ 이 오면 도대체 무슨 일이 벌어지는거죵?
-// 이건 그냥 문자인 것 같은데 안해줘도 되지 않나?
-            case '\'':
-                ptr[0] = '\'';
-                break;
-
-            case '\"':
-                ptr[0] = '\"';
-                break;
-            
-            case '\?':
-                ptr[0] = '\?';
-                break;
-
-            case '\\':
-                ptr[0] = '\\';
-                break;
-
-            case 'a':
-                ptr[0] = '\a';
-                break;
-
-            case 'b':
-                ptr[0] = '\b';
-                break;
-            
-            case 'f':
-                ptr[0] = '\f';
-                break;
-
-            case 'n':
-                ptr[0] = '\n';
-                break;
-
-            case 'r':
-                ptr[0] = '\r';
-                break;
-
-            case 't':
-                ptr[0] = '\t';
-                break;
-
-            case 'v':
-                ptr[0] = '\v';
-                break;
-
-            case '0':
-                ptr[0] = '\0';
-                break;
-                
-        }
+        ptr[0] = checkEscape(ptr[0]);
         strcat(yylval.sVal, ptr);
         ptr = strtok(NULL, "\\");
     }

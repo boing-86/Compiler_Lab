@@ -19,13 +19,11 @@ union{
  // 각종 정의
 WS [ \t\n]+
 KEYWORD break|case|char|default|do|else|float|for|if|int|return|switch|void|while
+IDENTIFIER [A-Za-z_][A-Za-z0-9_]*
 DIGIT [0-9]
 PUNCTUATION [\(\)\{\}\[\]\:\;]
-DECIMAL [1-9]{DIGIT}*
-OCTAL 0|[0-7]+
-HEXA 0[xX]([A-Fa-f]|{DIGIT})+
-INTEGER {HEXA}|{DECIMAL}|{OCTAL}|0
-REAL ({DIGIT}*\.{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[fF])|(\.{DIGIT}+[fF])|({DIGIT}+\.[eE][+-]?{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])|(\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])
+INTEGER [1-9][0-9]*|0|0[0-7]+|0[xX][A-Fa-f0-9]+
+REAL ({DIGIT}*\.{DIGIT}+F+)|({DIGIT}+\.{DIGIT}*[fF])|(\.{DIGIT}+[fF])|({DIGIT}+\.[eE][+-]?{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])|(\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])
 COMMENT_LINE \/\/[^\n]*\n
 COMMENT_LINES \/\*([^\*]|\*+[^\*\/])*\*+\/
 COMMENT {COMMENT_LINE}|{COMMENT_LINES}
@@ -34,26 +32,23 @@ STRING \"([^\\\'\"\n]|{ESCAPE})*\"
 CHAR_E '{ESCAPE}'
 CHAR_S '[\+\*\_\-\&\^\%\!\#\(\)\[\]\{\}\;\:\,\.\<\>\/]'
 CHAR '([a-zA-Z0-9])'|{CHAR_E}|{CHAR_S}
-LETTER_ [A-Za-z_]
-IDENTIFIER {LETTER_}({LETTER_}|{DIGIT})*
 AOPERATOR [\+|\-|\*|\/|\%|\+\=|\-\=|\*\=|\/\=|\%\=|\+\+|\-\-]
 BOPERATOR [\!|\=|\<|\>|\=\=|\!\=|\<\=|\>\=|\&\&|\|\||\,]
 OPERATOR {AOPERATOR}|{BOPERATOR}
-
 
 %%
 
 {WS} {}
 {KEYWORD} {return TKEYWORD;}
+{IDENTIFIER} {return TIDENTIFIER;}
 {PUNCTUATION} {return TPUNCTUATION;}
 {INTEGER} {return TINTEGER;}
 {STRING} {return TSTRING;}
 {REAL} {return TREAL;}
 {COMMENT} {return TCOMMENT;}
 {CHAR} {return TINTEGER;}
-{IDENTIFIER} {return TIDENTIFIER;}
 {OPERATOR} {return TOPERATOR;}
-
+. {return TERROR;}
 %%
 
 void checkInteger();
@@ -110,6 +105,7 @@ int main(int argc, char *argv[]){
 
 			default:
 				printf("Error occured\n");
+                return 0;
 		}
 		
 	}
@@ -201,6 +197,24 @@ void checkString(){
     char* ptr = strtok(yystring, "\\");
     while(ptr != NULL){
         switch(ptr[0]){
+// 질문. \', \", \?, \\ 이 오면 도대체 무슨 일이 벌어지는거죵?
+// 이건 그냥 문자인 것 같은데 안해줘도 되지 않나?
+            case '\'':
+                ptr[0] = '\'';
+                break;
+
+            case '\"':
+                ptr[0] = '\"';
+                break;
+            
+            case '\?':
+                ptr[0] = '\?';
+                break;
+
+            case '\\':
+                ptr[0] = '\\';
+                break;
+
             case 'a':
                 ptr[0] = '\a';
                 break;

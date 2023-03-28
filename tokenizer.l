@@ -165,6 +165,9 @@ char checkEscape(const char ch){
         case '0':
             a = '\0';
             break;
+
+        default :
+            return ch;
     }
     return a;
 }
@@ -198,8 +201,10 @@ void checkString(){
     strncpy(yystring, &yytext[1], yyleng-2);
     char* ptr = strtok(yystring, "\\");
     while(ptr != NULL){
-        ptr[0] = checkEscape(ptr[0]);
+        char a = ptr[0];
+        ptr[0] = checkEscape(a);
         strcat(yylval.sVal, ptr);
         ptr = strtok(NULL, "\\");
     }
+	
 }

@@ -28,7 +28,7 @@ OCTAL 0|[0-7]+
 HEXA 0[xX]([A-Fa-f]|{DIGIT})+
 INTEGER {HEXA}|{DECIMAL}|{OCTAL}|0
 REAL ({DIGIT}*\.{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[fF])|(\.{DIGIT}+[fF])|({DIGIT}+\.[eE][+-]?{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])|(\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])
-CHAR_E '\\[abfnrtv0\\\']'
+CHAR_E '\\[abfnrtv0\'\"\?\\\\\']'
 CHAR_S '[\"\?\+\*\_\-\&\^\%\!\#\(\)\[\]\{\}\;\:\,\.\<\>\/\\]'
 CHAR '([a-zA-Z0-9])'|{CHAR_E}|{CHAR_S}
 LETTER_ [A-Za-z_]
@@ -51,7 +51,6 @@ IDENTIFIER {LETTER_}({LETTER_}|{DIGIT})*
 %%
 
 void checkInteger();
-void checkReal();
 
 int main(int argc, char *argv[]){
 	enum tnumber tn;
@@ -89,7 +88,7 @@ int main(int argc, char *argv[]){
                 break;
 
             case TREAL :
-                checkReal();
+                yylval.rVal = strtof(yytext, NULL);
                 printf("%-15s:%19s,%5.2f\n", yytext, tokenType[3], yylval.rVal );
                 break;
 
@@ -116,6 +115,22 @@ void checkInteger(){
         if(yyleng == 4){
             char a;
             switch(yytext[2]){
+
+                case '\'':
+                    a = '\'';
+                    break;
+
+                case '\"':
+                    a = '\"';
+                    break;
+                
+                case '\?':
+                    a = '\?';
+                    break;
+
+                case '\\':
+                    a = '\\';
+                    break;
 
                 case 'a':
                     a = '\a';
@@ -161,10 +176,6 @@ void checkInteger(){
     else if(yytext[0] == 48){
         yylval.iVal = strtol(yytext, NULL, 8);
     }
-}
-
-void checkReal(){
-    yylval.rVal = strtof(yytext, NULL);
 }
 
 // Define additional functions here if you need...

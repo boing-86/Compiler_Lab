@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char* tokenType[] = {"Keyword", "Identifier", "Integer", "Real", "String", "Comment", "Operator", "Punctuation"};
 enum tnumber {TEOF, TKEYWORD, TIDENTIFIER, TINTEGER, TREAL, TSTRING, TCOMMENT, TOPERATOR, TPUNCTUATION, TERROR};
@@ -90,6 +91,7 @@ int main(int argc, char *argv[]){
                 break;
 
             case TSTRING :
+                yylval.sVal = (char*)malloc(yyleng);
                 checkString();
                 printf("%-15s:%19s,%s\n", yytext, tokenType[4], yylval.sVal);
                 break;
@@ -193,27 +195,46 @@ void checkInteger(){
 }
 
 void checkString(){
-    
+    char* yystring;
+    yystring = (char*)malloc(yyleng);
+    strncpy(yystring, &yytext[1], yyleng-2);
+    char* ptr = strtok(yystring, "\\");
+    while(ptr != NULL){
+        switch(ptr[0]){
+            case 'a':
+                ptr[0] = '\a';
+                break;
+
+            case 'b':
+                ptr[0] = '\b';
+                break;
+            
+            case 'f':
+                ptr[0] = '\f';
+                break;
+
+            case 'n':
+                ptr[0] = '\n';
+                break;
+
+            case 'r':
+                ptr[0] = '\r';
+                break;
+
+            case 't':
+                ptr[0] = '\t';
+                break;
+
+            case 'v':
+                ptr[0] = '\v';
+                break;
+
+            case '0':
+                ptr[0] = '\0';
+                break;
+                
+        }
+        strcat(yylval.sVal, ptr);
+        ptr = strtok(NULL, "\\");
+    }
 }
-
-
-// Define additional functions here if you need...
-
-
-// 2. 토큰이 실수 상수일 때
-// token 값을 yylval.rval 에 넣고 출력
-// printf("%-15s:%19s,%5.2f\n", yytext, tokenType[3], yylval.rVal );
-
-// 3. 토큰이 문자열일 때: 
-// malloc 함수를 이용하여 메모리 공간을 만든 후
-// "" 을 제거한 내용을 메모리 공간에 복사
-// yylval.sVal 에 공간의 주소를 넣고 출력
-	// yylval.sVal = (char*)malloc(yyleng+1);
-	// strcpy(yylval.sVal, yytext);
-// printf("%-15s:%19s,%s\n", yytext, tokenType[4], yylval.sVal );
-
-// 4. 이외 토큰
-// printf("%-15s:%19s\n", yytext, tokenType[다른 숫자]);
-
-// 5. 에러
-// printf("Error occured!\n");

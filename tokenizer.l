@@ -20,37 +20,43 @@ WS [ \t\n]+
 KEYWORD break|case|char|default|do|else|float|for|if|int|return|switch|void|while
 DIGIT [0-9]
 PUNCTUATION [\(\)\{\}\[\]\:\;]
-AOPERATOR [\+|\-|\*|\/|\%|\+\=|\-\=|\*\=|\/\=|\%\=|\+\+|\-\-]
-BOPERATOR [\!|\=|\<|\>|\=\=|\!\=|\<\=|\>\=|\&\&|\|\||\,]
-OPERATOR {AOPERATOR}|{BOPERATOR}
 DECIMAL [1-9]{DIGIT}*
 OCTAL 0|[0-7]+
 HEXA 0[xX]([A-Fa-f]|{DIGIT})+
 INTEGER {HEXA}|{DECIMAL}|{OCTAL}|0
 REAL ({DIGIT}*\.{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[fF])|(\.{DIGIT}+[fF])|({DIGIT}+\.[eE][+-]?{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])|(\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])
-CHAR_E '\\[abfnrtv0\'\"\?\\\\\']'
-CHAR_S '[\"\?\+\*\_\-\&\^\%\!\#\(\)\[\]\{\}\;\:\,\.\<\>\/\\]'
+COMMENT_LINE \/\/[^\n]*\n
+COMMENT_LINES \/\*([^\*]|\*+[^\*\/])*\*+\/
+COMMENT {COMMENT_LINE}|{COMMENT_LINES}
+ESCAPE \\[abfnrtv0\'\"\?\\]
+STRING \"([^\\\'\"\n]|{ESCAPE})*\"
+CHAR_E '{ESCAPE}'
+CHAR_S '[\+\*\_\-\&\^\%\!\#\(\)\[\]\{\}\;\:\,\.\<\>\/]'
 CHAR '([a-zA-Z0-9])'|{CHAR_E}|{CHAR_S}
 LETTER_ [A-Za-z_]
 IDENTIFIER {LETTER_}({LETTER_}|{DIGIT})*
- // STRING
- // COMMENT
-
+AOPERATOR [\+|\-|\*|\/|\%|\+\=|\-\=|\*\=|\/\=|\%\=|\+\+|\-\-]
+BOPERATOR [\!|\=|\<|\>|\=\=|\!\=|\<\=|\>\=|\&\&|\|\||\,]
+OPERATOR {AOPERATOR}|{BOPERATOR}
 
 
 %%
+
 {WS} {}
 {KEYWORD} {return TKEYWORD;}
 {PUNCTUATION} {return TPUNCTUATION;}
-{OPERATOR} {return TOPERATOR;}
 {INTEGER} {return TINTEGER;}
+{STRING} {return TSTRING;}
 {REAL} {return TREAL;}
+{COMMENT} {return TCOMMENT;}
 {CHAR} {return TINTEGER;}
 {IDENTIFIER} {return TIDENTIFIER;}
+{OPERATOR} {return TOPERATOR;}
 
 %%
 
 void checkInteger();
+void checkString();
 
 int main(int argc, char *argv[]){
 	enum tnumber tn;
@@ -69,27 +75,35 @@ int main(int argc, char *argv[]){
                 printf("%-15s:%19s\n", yytext, tokenType[0]);
                 break;
 
-            case TPUNCTUATION :
-                printf("%-15s:%19s\n", yytext, tokenType[7]);
-                break;
-
-            case TOPERATOR :
-                printf("%-15s:%19s\n", yytext, tokenType[6]);
-                break;
-
             case TIDENTIFIER:
                 printf("%-15s:%19s\n", yytext, tokenType[1]);
                 break;
 
             case TINTEGER:
                 checkInteger();
-
                 printf("%-15s:%19s,%5d\n", yytext, tokenType[2], yylval.iVal);
                 break;
 
             case TREAL :
                 yylval.rVal = strtof(yytext, NULL);
-                printf("%-15s:%19s,%5.2f\n", yytext, tokenType[3], yylval.rVal );
+                printf("%-15s:%19s,%5.2f\n", yytext, tokenType[3], yylval.rVal);
+                break;
+
+            case TSTRING :
+                checkString();
+                printf("%-15s:%19s,%s\n", yytext, tokenType[4], yylval.sVal);
+                break;
+
+            case TCOMMENT :
+                printf("%-15s:%19s\n", yytext, tokenType[5]);
+                break;
+
+            case TOPERATOR :
+                printf("%-15s:%19s\n", yytext, tokenType[6]);
+                break;
+
+            case TPUNCTUATION :
+                printf("%-15s:%19s\n", yytext, tokenType[7]);
                 break;
 
 			default:
@@ -177,6 +191,11 @@ void checkInteger(){
         yylval.iVal = strtol(yytext, NULL, 8);
     }
 }
+
+void checkString(){
+    
+}
+
 
 // Define additional functions here if you need...
 

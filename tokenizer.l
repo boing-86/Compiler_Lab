@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char* tokenType[] = {"Keyword", "Identifier", "Integer", "Real", "String", "Comment", "Operator", "Punctuation"};
 enum tnumber {TEOF, TKEYWORD, TIDENTIFIER, TINTEGER, TREAL, TSTRING, TCOMMENT, TOPERATOR, TPUNCTUATION, TERROR};
@@ -18,13 +19,11 @@ union{
  // 각종 정의
 WS [ \t\n]+
 KEYWORD break|case|char|default|do|else|float|for|if|int|return|switch|void|while
+IDENTIFIER [A-Za-z_][A-Za-z0-9_]*
 DIGIT [0-9]
 PUNCTUATION [\(\)\{\}\[\]\:\;]
-DECIMAL [1-9]{DIGIT}*
-OCTAL 0|[0-7]+
-HEXA 0[xX]([A-Fa-f]|{DIGIT})+
-INTEGER {HEXA}|{DECIMAL}|{OCTAL}|0
-REAL ({DIGIT}*\.{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[fF])|(\.{DIGIT}+[fF])|({DIGIT}+\.[eE][+-]?{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])|(\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])
+INTEGER [1-9][0-9]*|0|0[0-7]+|0[xX][A-Fa-f0-9]+
+REAL ({DIGIT}*\.{DIGIT}+F+)|({DIGIT}+\.{DIGIT}*[fF])|(\.{DIGIT}+[fF])|({DIGIT}+\.[eE][+-]?{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])|(\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])
 COMMENT_LINE \/\/[^\n]*\n
 COMMENT_LINES \/\*([^\*]|\*+[^\*\/])*\*+\/
 COMMENT {COMMENT_LINE}|{COMMENT_LINES}
@@ -33,26 +32,23 @@ STRING \"([^\\\'\"\n]|{ESCAPE})*\"
 CHAR_E '{ESCAPE}'
 CHAR_S '[\+\*\_\-\&\^\%\!\#\(\)\[\]\{\}\;\:\,\.\<\>\/]'
 CHAR '([a-zA-Z0-9])'|{CHAR_E}|{CHAR_S}
-LETTER_ [A-Za-z_]
-IDENTIFIER {LETTER_}({LETTER_}|{DIGIT})*
 AOPERATOR [\+|\-|\*|\/|\%|\+\=|\-\=|\*\=|\/\=|\%\=|\+\+|\-\-]
 BOPERATOR [\!|\=|\<|\>|\=\=|\!\=|\<\=|\>\=|\&\&|\|\||\,]
 OPERATOR {AOPERATOR}|{BOPERATOR}
-
 
 %%
 
 {WS} {}
 {KEYWORD} {return TKEYWORD;}
+{IDENTIFIER} {return TIDENTIFIER;}
 {PUNCTUATION} {return TPUNCTUATION;}
 {INTEGER} {return TINTEGER;}
 {STRING} {return TSTRING;}
 {REAL} {return TREAL;}
 {COMMENT} {return TCOMMENT;}
 {CHAR} {return TINTEGER;}
-{IDENTIFIER} {return TIDENTIFIER;}
 {OPERATOR} {return TOPERATOR;}
-
+. {return TERROR;}
 %%
 
 void checkInteger();
@@ -90,6 +86,7 @@ int main(int argc, char *argv[]){
                 break;
 
             case TSTRING :
+                yylval.sVal = (char*)malloc(yyleng);
                 checkString();
                 printf("%-15s:%19s,%s\n", yytext, tokenType[4], yylval.sVal);
                 break;
@@ -108,6 +105,7 @@ int main(int argc, char *argv[]){
 
 			default:
 				printf("Error occured\n");
+                return 0;
 		}
 		
 	}
@@ -193,27 +191,64 @@ void checkInteger(){
 }
 
 void checkString(){
-    
+    char* yystring;
+    yystring = (char*)malloc(yyleng);
+    strncpy(yystring, &yytext[1], yyleng-2);
+    char* ptr = strtok(yystring, "\\");
+    while(ptr != NULL){
+        switch(ptr[0]){
+// 질문. \', \", \?, \\ 이 오면 도대체 무슨 일이 벌어지는거죵?
+// 이건 그냥 문자인 것 같은데 안해줘도 되지 않나?
+            case '\'':
+                ptr[0] = '\'';
+                break;
+
+            case '\"':
+                ptr[0] = '\"';
+                break;
+            
+            case '\?':
+                ptr[0] = '\?';
+                break;
+
+            case '\\':
+                ptr[0] = '\\';
+                break;
+
+            case 'a':
+                ptr[0] = '\a';
+                break;
+
+            case 'b':
+                ptr[0] = '\b';
+                break;
+            
+            case 'f':
+                ptr[0] = '\f';
+                break;
+
+            case 'n':
+                ptr[0] = '\n';
+                break;
+
+            case 'r':
+                ptr[0] = '\r';
+                break;
+
+            case 't':
+                ptr[0] = '\t';
+                break;
+
+            case 'v':
+                ptr[0] = '\v';
+                break;
+
+            case '0':
+                ptr[0] = '\0';
+                break;
+                
+        }
+        strcat(yylval.sVal, ptr);
+        ptr = strtok(NULL, "\\");
+    }
 }
-
-
-// Define additional functions here if you need...
-
-
-// 2. 토큰이 실수 상수일 때
-// token 값을 yylval.rval 에 넣고 출력
-// printf("%-15s:%19s,%5.2f\n", yytext, tokenType[3], yylval.rVal );
-
-// 3. 토큰이 문자열일 때: 
-// malloc 함수를 이용하여 메모리 공간을 만든 후
-// "" 을 제거한 내용을 메모리 공간에 복사
-// yylval.sVal 에 공간의 주소를 넣고 출력
-	// yylval.sVal = (char*)malloc(yyleng+1);
-	// strcpy(yylval.sVal, yytext);
-// printf("%-15s:%19s,%s\n", yytext, tokenType[4], yylval.sVal );
-
-// 4. 이외 토큰
-// printf("%-15s:%19s\n", yytext, tokenType[다른 숫자]);
-
-// 5. 에러
-// printf("Error occured!\n");

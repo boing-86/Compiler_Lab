@@ -21,8 +21,8 @@ WS [ \t\n]+
 KEYWORD break|case|char|default|do|else|float|for|if|int|return|switch|void|while
 IDENTIFIER [A-Za-z_][A-Za-z0-9_]*
 DIGIT [0-9]
-PUNCTUATION [\(\)\{\}\[\]\:\;]
 INTEGER [1-9][0-9]*|0|0[0-7]+|0[xX][A-Fa-f0-9]+
+PUNCTUATION [\(\)\{\}\[\]\:\;]
 REAL ({DIGIT}*\.{DIGIT}+F+)|({DIGIT}+\.{DIGIT}*[fF])|(\.{DIGIT}+[fF])|({DIGIT}+\.[eE][+-]?{DIGIT}+[fF])|({DIGIT}+\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])|(\.{DIGIT}*[eE][+-]?{DIGIT}*[fF])
 COMMENT_LINE \/\/[^\n]*\n
 COMMENT_LINES \/\*([^\*]|\*+[^\*\/])*\*+\/
@@ -30,12 +30,11 @@ COMMENT {COMMENT_LINE}|{COMMENT_LINES}
 ESCAPE \\[abfnrtv0\'\"\?\\]
 STRING \"([^\\\'\"\n]|{ESCAPE})*\"
 CHAR_E '{ESCAPE}'
-CHAR_S '[\+\*\_\-\&\^\%\!\#\(\)\[\]\{\}\;\:\,\.\<\>\/]'
+CHAR_S '[\+\*\_\-\&\^\%\!\#\(\)\[\]\{\}\;\:\,\.\<\>\/\|\~\=]'
 CHAR '([a-zA-Z0-9])'|{CHAR_E}|{CHAR_S}
-AOPERATOR [\+|\-|\*|\/|\%|\+\=|\-\=|\*\=|\/\=|\%\=|\+\+|\-\-]
-BOPERATOR [\!|\=|\<|\>|\=\=|\!\=|\<\=|\>\=|\&\&|\|\||\,]
-OPERATOR {AOPERATOR}|{BOPERATOR}
-
+AOPERATOR [\+|\-|\*|\/|\%]
+BOPERATOR [\!|\=|\<|\>]
+OPERATOR {AOPERATOR}|{AOPERATOR}(=)|\+\+|\-\-|{BOPERATOR}|{BOPERATOR}(=)|\|\||\&\&|,
 %%
 
 {WS} {}
@@ -176,7 +175,12 @@ char checkEscape(const char ch){
 void checkInteger(){
 
     if (yytext[1] == 'x' || yytext[1] == 'X'){
-        yylval.iVal = strtol(yytext, NULL, 16);
+        if(yytext[0] == '0'){
+            yylval.iVal = strtol(yytext, NULL, 16);
+        }
+        else{
+            yylval.iVal = yytext[1];
+        }
     }
 
     else if(yytext[0] == '\''){

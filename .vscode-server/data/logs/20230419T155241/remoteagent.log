@@ -1,0 +1,44 @@
+2023-04-19 15:52:41.217 [info] 
+
+
+
+
+2023-04-19 15:52:41.237 [info] Extension host agent started.
+2023-04-19 15:52:41.330 [info] [127.0.0.1][730b2f00][ManagementConnection] New connection established.
+2023-04-19 15:52:41.394 [info] [127.0.0.1][150fad64][ExtensionHostConnection] New connection established.
+2023-04-19 15:52:41.406 [info] [127.0.0.1][150fad64][ExtensionHostConnection] <461974> Launched Extension Host Process.
+2023-04-19 15:52:48.492 [error] CodeExpectedError: Could not find pty on pty host
+    at L (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:28:6849)
+    at L.updateTitle (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:28:2630)
+    at Object.call (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:17:5043)
+    at g.s (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:15:5413)
+    at g.q (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:15:4916)
+    at /home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:15:4327
+    at c.invoke (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:11:145)
+    at f.deliver (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:11:2125)
+    at n.fire (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:11:1733)
+    at process.T (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:9:21039)
+    at process.emit (node:events:526:28)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-04-19 15:52:48.495 [error] CodeExpectedError: Could not find pty on pty host
+    at L (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:28:6849)
+    at L.updateIcon (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:28:2680)
+    at Object.call (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:17:5043)
+    at g.s (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:15:5413)
+    at g.q (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:15:4916)
+    at /home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:15:4327
+    at c.invoke (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:11:145)
+    at f.deliver (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:11:2125)
+    at n.fire (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:11:1733)
+    at process.T (/home/c2023_1/c1913076/.vscode-server/bin/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/out/vs/platform/terminal/node/ptyHostMain.js:9:21039)
+    at process.emit (node:events:526:28)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+2023-04-19 15:57:41.238 [info] New EH opened, aborting shutdown
+2023-04-19 16:13:32.584 [info] [127.0.0.1][730b2f00][ManagementConnection] The client has reconnected.
+2023-04-19 16:13:53.582 [info] [127.0.0.1][150fad64][ExtensionHostConnection] The client has reconnected.
+2023-04-19 16:35:52.170 [info] [127.0.0.1][19c4adb1][ManagementConnection] New connection established.
+2023-04-19 16:35:52.262 [info] [127.0.0.1][728b5225][ExtensionHostConnection] New connection established.
+2023-04-19 16:35:52.268 [info] [127.0.0.1][728b5225][ExtensionHostConnection] <465240> Launched Extension Host Process.
+2023-04-19 17:48:19.350 [warning] [File Watcher (node.js)] Watcher shutdown because watched path got deleted

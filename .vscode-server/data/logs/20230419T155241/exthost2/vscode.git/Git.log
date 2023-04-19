@@ -1,0 +1,26 @@
+2023-04-19 16:35:53.521 [info] Log level: Info
+2023-04-19 16:35:53.522 [info] Validating found git in: "git"
+2023-04-19 16:35:53.522 [info] Using git "2.25.1" from "git"
+2023-04-19 16:35:53.522 [info] > git rev-parse --show-toplevel [20ms]
+2023-04-19 16:35:53.522 [info] > git rev-parse --git-dir --git-common-dir [1ms]
+2023-04-19 16:35:53.522 [info] Open repository: /home/c2023_1/c1913076/PA1
+2023-04-19 16:35:53.522 [info] > git rev-parse --show-toplevel [3ms]
+2023-04-19 16:35:53.522 [info] > git config --get commit.template [5ms]
+2023-04-19 16:35:53.522 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2023-04-19 16:35:53.522 [info] > git status -z -uall [2ms]
+2023-04-19 16:35:53.522 [info] > git config --get commit.template [4ms]
+2023-04-19 16:35:53.522 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2023-04-19 16:35:53.522 [info] > git status -z -uall [1ms]
+2023-04-19 16:35:53.690 [info] > git show --textconv :tokenizer.l [5ms]
+2023-04-19 16:35:53.691 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/tokenizer.l [2ms]
+2023-04-19 16:35:53.695 [info] > git cat-file -s ab6d271396902e2d95e4a187f1435ee125597423 [1ms]
+2023-04-19 16:35:53.859 [info] > git check-ignore -v -z --stdin [2ms]
+2023-04-19 16:36:12.499 [info] > git config --get commit.template [4ms]
+2023-04-19 16:36:12.500 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [2ms]
+2023-04-19 16:36:12.504 [info] > git status -z -uall [1ms]
+2023-04-19 16:36:22.271 [info] > git show --textconv :hello.c [4ms]
+2023-04-19 16:36:22.272 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/hello.c [2ms]
+2023-04-19 16:36:22.278 [info] > git cat-file -s e143627b8737f162f97d8efea4c7d16162c2d194 [3ms]
+2023-04-19 16:36:29.487 [info] > git config --get commit.template [5ms]
+2023-04-19 16:36:29.487 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2023-04-19 16:36:29.492 [info] > git status -z -uall [1ms]

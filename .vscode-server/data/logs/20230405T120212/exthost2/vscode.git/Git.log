@@ -1,0 +1,63 @@
+2023-04-05 12:02:43.712 [info] Log level: Info
+2023-04-05 12:02:43.712 [info] Validating found git in: "git"
+2023-04-05 12:02:43.712 [info] Using git "2.25.1" from "git"
+2023-04-05 12:02:43.712 [info] > git rev-parse --show-toplevel [5ms]
+2023-04-05 12:02:43.712 [info] fatal: not a git repository (or any of the parent directories): .git
+2023-04-05 12:02:43.712 [info] > git rev-parse --show-toplevel [20ms]
+2023-04-05 12:02:43.712 [info] > git rev-parse --git-dir --git-common-dir [2ms]
+2023-04-05 12:02:43.712 [info] Open repository: /home/c2023_1/c1913076/PA1
+2023-04-05 12:02:43.712 [info] > git rev-parse --show-toplevel [4ms]
+2023-04-05 12:02:43.712 [info] fatal: not a git repository (or any of the parent directories): .git
+2023-04-05 12:02:43.712 [info] > git config --get commit.template [5ms]
+2023-04-05 12:02:43.712 [info] > git rev-parse --show-toplevel [5ms]
+2023-04-05 12:02:43.712 [info] fatal: not a git repository (or any of the parent directories): .git
+2023-04-05 12:02:43.712 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [5ms]
+2023-04-05 12:02:43.712 [info] > git rev-parse --show-toplevel [7ms]
+2023-04-05 12:02:43.712 [info] fatal: not a git repository (or any of the parent directories): .git
+2023-04-05 12:02:43.712 [info] > git status -z -uall [4ms]
+2023-04-05 12:02:43.712 [info] > git rev-parse --show-toplevel [9ms]
+2023-04-05 12:02:43.712 [info] fatal: not a git repository (or any of the parent directories): .git
+2023-04-05 12:02:43.712 [info] > git config --get commit.template [4ms]
+2023-04-05 12:02:43.712 [info] > git rev-parse --show-toplevel [64ms]
+2023-04-05 12:02:43.712 [info] fatal: not a git repository (or any of the parent directories): .git
+2023-04-05 12:02:43.712 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [3ms]
+2023-04-05 12:02:43.712 [info] > git status -z -uall [1ms]
+2023-04-05 12:02:43.712 [info] > git rev-parse --show-toplevel [6ms]
+2023-04-05 12:02:43.712 [info] fatal: not a git repository (or any of the parent directories): .git
+2023-04-05 12:02:43.800 [info] > git show --textconv :tokenizer.l [47ms]
+2023-04-05 12:02:43.801 [info] > git show --textconv :hello.c [32ms]
+2023-04-05 12:02:43.801 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/tokenizer.l [18ms]
+2023-04-05 12:02:43.816 [info] > git cat-file -s 983288177393a0a44017d8ae0b7785efc844f7ae [4ms]
+2023-04-05 12:02:43.817 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/hello.c [20ms]
+2023-04-05 12:02:43.836 [info] > git cat-file -s 6bba4bbb81cf3cd9ca52494ce2b5d8ab39a505fe [12ms]
+2023-04-05 12:02:44.056 [info] > git check-ignore -v -z --stdin [1ms]
+2023-04-05 12:03:09.827 [info] > git config --get commit.template [4ms]
+2023-04-05 12:03:09.827 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2023-04-05 12:03:09.831 [info] > git status -z -uall [1ms]
+2023-04-05 12:03:25.045 [info] > git config --get commit.template [4ms]
+2023-04-05 12:03:25.045 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2023-04-05 12:03:25.049 [info] > git status -z -uall [1ms]
+2023-04-05 12:03:25.194 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/tokenizer.l [4ms]
+2023-04-05 12:03:25.198 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/hello.c [4ms]
+2023-04-05 12:03:25.201 [info] > git cat-file -s d5fa4e587cf280bcab66a5902e9ef5c5685d424b [4ms]
+2023-04-05 12:03:25.202 [info] > git cat-file -s 6bba4bbb81cf3cd9ca52494ce2b5d8ab39a505fe [1ms]
+2023-04-05 12:03:25.221 [info] > git show --textconv :tokenizer.l [4ms]
+2023-04-05 12:03:25.222 [info] > git show --textconv :hello.c [1ms]
+2023-04-05 12:03:37.844 [info] > git config --get commit.template [4ms]
+2023-04-05 12:03:37.847 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [3ms]
+2023-04-05 12:03:37.852 [info] > git status -z -uall [1ms]
+2023-04-05 12:03:38.101 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/tokenizer.l [4ms]
+2023-04-05 12:03:38.104 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/hello.c [4ms]
+2023-04-05 12:03:38.108 [info] > git cat-file -s d5fa4e587cf280bcab66a5902e9ef5c5685d424b [4ms]
+2023-04-05 12:03:38.109 [info] > git cat-file -s 6bba4bbb81cf3cd9ca52494ce2b5d8ab39a505fe [2ms]
+2023-04-05 12:03:38.136 [info] > git show --textconv :tokenizer.l [6ms]
+2023-04-05 12:03:38.137 [info] > git show --textconv :hello.c [1ms]
+2023-04-05 12:04:14.946 [info] > git config --get commit.template [1ms]
+2023-04-05 12:04:14.950 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2023-04-05 12:04:14.955 [info] > git status -z -uall [1ms]
+2023-04-05 12:04:15.073 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/tokenizer.l [4ms]
+2023-04-05 12:04:15.076 [info] > git ls-files --stage -- /home/c2023_1/c1913076/PA1/hello.c [4ms]
+2023-04-05 12:04:15.079 [info] > git cat-file -s d5fa4e587cf280bcab66a5902e9ef5c5685d424b [4ms]
+2023-04-05 12:04:15.080 [info] > git cat-file -s 6bba4bbb81cf3cd9ca52494ce2b5d8ab39a505fe [1ms]
+2023-04-05 12:04:15.105 [info] > git show --textconv :tokenizer.l [5ms]
+2023-04-05 12:04:15.106 [info] > git show --textconv :hello.c [2ms]

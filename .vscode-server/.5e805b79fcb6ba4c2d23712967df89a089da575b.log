@@ -1,0 +1,225 @@
+*
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+*
+Server bound to 127.0.0.1:45787 (IPv4)
+Extension host agent listening on 45787
+
+[10:52:01] 
+
+
+
+
+[10:52:01] Extension host agent started.
+[10:52:01] Started initializing default profile extensions in extensions installation folder. file:///home/c2023_1/c1913076/.vscode-server/extensions
+[10:52:01] Completed initializing default profile extensions in extensions installation folder. file:///home/c2023_1/c1913076/.vscode-server/extensions
+[10:52:01] [127.0.0.1][fb29dde5][ManagementConnection] New connection established.
+[10:52:01] [127.0.0.1][1e72305f][ExtensionHostConnection] New connection established.
+[10:52:01] [127.0.0.1][1e72305f][ExtensionHostConnection] <217905> Launched Extension Host Process.
+[IPC Library: Pty Host]  WARN Shell integration cannot be enabled for executable "/bin/sh" and args [
+  '-c',
+  'wget --version > /dev/null\n' +
+    'if [ $? -eq 0 ]\n' +
+    'then\n' +
+    "\twget --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\n" +
+    'else\n' +
+    '\tcurl --version > /dev/null\n' +
+    '\tif [ $? -eq 0 ]\n' +
+    '\tthen\n' +
+    "\t\tcurl --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n" +
+    '\tfi\n' +
+    'fi\n' +
+    'exit 0'
+]
+[IPC Library: Pty Host]  WARN Shell integration cannot be enabled for executable "/bin/sh" and args [
+  '-c',
+  'wget --version > /dev/null\n' +
+    'if [ $? -eq 0 ]\n' +
+    'then\n' +
+    '\twget --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\n' +
+    'else\n' +
+    '\tcurl --version > /dev/null\n' +
+    '\tif [ $? -eq 0 ]\n' +
+    '\tthen\n' +
+    '\t\tcurl --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n' +
+    '\tfi\n' +
+    'fi\n' +
+    'exit 0'
+]
+[IPC Library: Pty Host]  WARN Shell integration cannot be enabled for executable "/bin/sh" and args [
+  '-c',
+  'wget --version > /dev/null\n' +
+    'if [ $? -eq 0 ]\n' +
+    'then\n' +
+    '\twget --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\n' +
+    'else\n' +
+    '\tcurl --version > /dev/null\n' +
+    '\tif [ $? -eq 0 ]\n' +
+    '\tthen\n' +
+    '\t\tcurl --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n' +
+    '\tfi\n' +
+    'fi\n' +
+    'exit 0'
+]
+[IPC Library: Pty Host]  WARN Shell integration cannot be enabled for executable "/bin/sh" and args [
+  '-c',
+  'wget --version > /dev/null\n' +
+    'if [ $? -eq 0 ]\n' +
+    'then\n' +
+    "\twget --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\n" +
+    'else\n' +
+    '\tcurl --version > /dev/null\n' +
+    '\tif [ $? -eq 0 ]\n' +
+    '\tthen\n' +
+    "\t\tcurl --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n" +
+    '\tfi\n' +
+    'fi\n' +
+    'exit 0'
+]
+[10:52:12] [127.0.0.1][fb29dde5][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[10:52:12] [127.0.0.1][1e72305f][ExtensionHostConnection] <217905> Extension Host Process exited with code: 0, signal: null.
+Cancelling previous shutdown timeout
+[10:52:12] Cancelling previous shutdown timeout
+Last EH closed, waiting before shutting down
+[10:52:12] Last EH closed, waiting before shutting down
+Got delay-shutdown request while in shutdown timeout, delaying
+[10:52:19] Got delay-shutdown request while in shutdown timeout, delaying
+Cancelling previous shutdown timeout
+[10:52:19] Cancelling previous shutdown timeout
+[10:52:19] [127.0.0.1][5c96521f][ManagementConnection] New connection established.
+[10:52:19] [127.0.0.1][0a747a43][ExtensionHostConnection] New connection established.
+[10:52:19] [127.0.0.1][0a747a43][ExtensionHostConnection] <218100> Launched Extension Host Process.
+[IPC Library: Pty Host]  WARN Shell integration cannot be enabled for executable "/bin/sh" and args [
+  '-c',
+  'wget --version > /dev/null\n' +
+    'if [ $? -eq 0 ]\n' +
+    'then\n' +
+    "\twget --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\n" +
+    'else\n' +
+    '\tcurl --version > /dev/null\n' +
+    '\tif [ $? -eq 0 ]\n' +
+    '\tthen\n' +
+    "\t\tcurl --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n" +
+    '\tfi\n' +
+    'fi\n' +
+    'exit 0'
+]
+[IPC Library: Pty Host]  WARN Shell integration cannot be enabled for executable "/bin/sh" and args [
+  '-c',
+  'wget --version > /dev/null\n' +
+    'if [ $? -eq 0 ]\n' +
+    'then\n' +
+    '\twget --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\n' +
+    'else\n' +
+    '\tcurl --version > /dev/null\n' +
+    '\tif [ $? -eq 0 ]\n' +
+    '\tthen\n' +
+    '\t\tcurl --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n' +
+    '\tfi\n' +
+    'fi\n' +
+    'exit 0'
+]
+[IPC Library: Pty Host]  WARN Shell integration cannot be enabled for executable "/bin/sh" and args [
+  '-c',
+  'wget --version > /dev/null\n' +
+    'if [ $? -eq 0 ]\n' +
+    'then\n' +
+    '\twget --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\n' +
+    'else\n' +
+    '\tcurl --version > /dev/null\n' +
+    '\tif [ $? -eq 0 ]\n' +
+    '\tthen\n' +
+    '\t\tcurl --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n' +
+    '\tfi\n' +
+    'fi\n' +
+    'exit 0'
+]
+[IPC Library: Pty Host]  WARN Shell integration cannot be enabled for executable "/bin/sh" and args [
+  '-c',
+  'wget --version > /dev/null\n' +
+    'if [ $? -eq 0 ]\n' +
+    'then\n' +
+    "\twget --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\n" +
+    'else\n' +
+    '\tcurl --version > /dev/null\n' +
+    '\tif [ $? -eq 0 ]\n' +
+    '\tthen\n' +
+    "\t\tcurl --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n" +
+    '\tfi\n' +
+    'fi\n' +
+    'exit 0'
+]
+rejected promise not handled within 1 second: CodeExpectedError: Could not find pty on pty host
+stack trace: CodeExpectedError: Could not find pty on pty host
+    at S.L (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:27:6849)
+    at S.updateIcon (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:27:2680)
+    at Object.call (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:17:5043)
+    at l.s (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:5412)
+    at l.q (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:4915)
+    at /home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:4326
+    at n.invoke (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:145)
+    at E.deliver (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:2070)
+    at c.fire (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:1708)
+    at process.T (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:9:20949)
+    at process.emit (node:events:526:28)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+[10:52:30] Error [CodeExpectedError]: Could not find pty on pty host
+    at S.L (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:27:6849)
+    at S.updateIcon (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:27:2680)
+    at Object.call (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:17:5043)
+    at l.s (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:5412)
+    at l.q (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:4915)
+    at /home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:4326
+    at n.invoke (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:145)
+    at E.deliver (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:2070)
+    at c.fire (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:1708)
+    at process.T (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:9:20949)
+    at process.emit (node:events:526:28)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+rejected promise not handled within 1 second: CodeExpectedError: Could not find pty on pty host
+stack trace: CodeExpectedError: Could not find pty on pty host
+    at S.L (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:27:6849)
+    at S.updateTitle (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:27:2630)
+    at Object.call (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:17:5043)
+    at l.s (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:5412)
+    at l.q (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:4915)
+    at /home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:4326
+    at n.invoke (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:145)
+    at E.deliver (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:2070)
+    at c.fire (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:1708)
+    at process.T (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:9:20949)
+    at process.emit (node:events:526:28)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+[10:52:30] Error [CodeExpectedError]: Could not find pty on pty host
+    at S.L (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:27:6849)
+    at S.updateTitle (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:27:2630)
+    at Object.call (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:17:5043)
+    at l.s (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:5412)
+    at l.q (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:4915)
+    at /home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:15:4326
+    at n.invoke (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:145)
+    at E.deliver (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:2070)
+    at c.fire (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:11:1708)
+    at process.T (/home/c2023_1/c1913076/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/out/vs/platform/terminal/node/ptyHostMain.js:9:20949)
+    at process.emit (node:events:526:28)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+[10:53:15] [127.0.0.1][5c96521f][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[10:53:15] [127.0.0.1][0a747a43][ExtensionHostConnection] <218100> Extension Host Process exited with code: 0, signal: null.
+Cancelling previous shutdown timeout
+[10:53:15] Cancelling previous shutdown timeout
+Last EH closed, waiting before shutting down
+[10:53:15] Last EH closed, waiting before shutting down
+[10:57:28] Extensions added from another source ms-vscode.cpptools-themes file:///home/c2023_1/c1913076/.vscode-server/extensions/extensions.json
+[10:57:29] Extensions added from another source twxs.cmake file:///home/c2023_1/c1913076/.vscode-server/extensions/extensions.json
+[10:57:30] Extensions added from another source ms-vscode.cmake-tools file:///home/c2023_1/c1913076/.vscode-server/extensions/extensions.json
+[10:57:39] Extensions added from another source ms-vscode.cpptools file:///home/c2023_1/c1913076/.vscode-server/extensions/extensions.json
+[10:57:40] Extensions added from another source ms-vscode.cpptools-extension-pack file:///home/c2023_1/c1913076/.vscode-server/extensions/extensions.json
+Last EH closed, shutting down
+[10:58:15] Last EH closed, shutting down
